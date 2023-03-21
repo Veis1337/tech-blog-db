@@ -166,7 +166,36 @@ input {
   text-decoration: none;
 }
 
+.edit {
+  color:#9caea9;
+  background-color:#38302e;
+  padding: .5%;
+  margin: .2em;
+}
+
+.delete-btn {
+  color:#9caea9;
+  background-color:#38302e;
+  padding: .5%;
+  margin: .2em;
+}
+
+.post-id {
+  font-size: .5em;
+  margin-left: 1%;
+  visibility: hidden;
+}
+
 /* CARDS */
+.card-time {
+  font-size: .8em;
+  padding: 0%1%0%1%;
+}
+
+.card-user {
+  padding: 1%;
+}
+
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
