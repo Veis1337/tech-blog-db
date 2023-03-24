@@ -1,4 +1,4 @@
-// NOT Starter code
+// Not sure if needed, used timestamps instead for now.
 
 module.exports = {
     format_time: (date) => {

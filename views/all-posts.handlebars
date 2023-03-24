@@ -1,8 +1,24 @@
     {{#each posts as | post | }}
     <div class="card">
-    <h3 class="card-header">{{post.title}}</h3>
-    {{!-- <br><h2 class="card-user">{{user.username}}</h2>
-    <p class="card-body">{{post.body}}</p> --}}
+        <a href="/post/{{id}}">
+        <div class="col-8 edit card-header">{{post.title}}</div>
+      </a>
+  <br><h2 class="card-user">Posted by {{user.username}}</h2>
+        {{!-- <p class="card-body">{{post.body}}</p> --}}
     <p class="card-body">{{post.createdAt}}</p>
     </div>
     {{/each}}
+
+{{!-- <div class="row">
+  <div class="col-auto">
+  <h2>Logged in as {{user.username}}</h2>
+  </div>
+</div>
+<br>
+{{#if posts.length}}
+<div class="card flex-column">
+  {{#each posts as |post|}}
+  {{> editItem post}}
+  {{/each}}
+</div>
+{{/if}} --}}

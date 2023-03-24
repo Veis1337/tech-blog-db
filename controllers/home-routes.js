@@ -40,10 +40,10 @@ router.get('/post/:id', async (req, res) => {
         },
       ],
     });
-
     if (postData) {
       const post = postData.get({ plain: true });
-      res.render('single-post', { post });
+
+      res.render('single-post', { post, loggedIn: req.session.loggedIn });
     } else {
       res.status(404).end();
     }
@@ -58,17 +58,15 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
 });
 
-// router.get('/signup', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
-
-//   res.render('signup');
-// });
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('signup');
+});
 
 module.exports = router;

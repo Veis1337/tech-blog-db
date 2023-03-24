@@ -1,12 +1,11 @@
-    {{#each posts as | post | }}
-    <div class="card">
-    <button data-id="{{post.id}}" class="edit">Edit Post</button>
-    <button class="delete-btn">Delete Post</button>
-    <h3 class="card-header" id="edit-title">{{post.title}}</h3>
-    <p class="card-body" id="edit-body">{{post.body}}</p>
-    <p class="card-body">{{post.createdAt}}</p>
-    <p class="post-id">{{post.id}}</p>
-    </div>
-    {{/each}}
-
-<script src="/js/all-posts-admin.js"></script>
+{{#each posts as | post | }}
+<div class="card">
+  <a href="/dashboard/edit/{{id}}">
+    <div class="col-8 edit">{{post.title}}</div>
+  </a>
+ 
+  <p class="card-body" id="edit-body">{{post.body}}</p>
+  <p class="card-body">{{post.createdAt}}</p>
+  <p class="post-id">{{post.id}}</p>
+</div>
+{{/each}}

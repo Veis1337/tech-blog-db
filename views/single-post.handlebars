@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-header  flex-row justify-space-between">
+    <h2>
+      <a href="/post/{{post.id}}">
+        <div class="col-8">{{post.title}}</div>
+      </a>
+    </h2>
+    <div class="col-3">posted by {{post.user.username}} on {{post.createdAt}}
+    </div>
+  </div>
+  <p class="card-body">
+    {{post.body}}
+  </p><br><br>
+</div>
+{{#if post.comments}}
+{{#each post.comments as |comment| }}
+<div class="card-header  flex-row justify-space-between"></div>
+<div>
+  <p class="card-body">
+    {{body}}
+  </p>
+  <p class="card-body">
+    Comment by -- {{comment.user.username}}
+  </p>
+</div>
+</div>
+{{/each}}
+{{/if}}
+</div>
+<input type="hidden" id="post-id" value="{{post.id}}" />
+<div class="card">
+  <div class="card-header"></div>
+  <form class="card-body" id="new-comment-form">
+
+    <p class="form-label">Comment:</p>
+    <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
+    <button type="submit" class="btn btn-primary">Submit:</button>
+  </form>
+</div>
+
+<script src="/js/comment.js"></script>

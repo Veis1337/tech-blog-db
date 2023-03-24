@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
+// Create post
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
 
@@ -12,6 +13,25 @@ router.post('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/view/:id', withAuth, async (req,res) => {
+//   try{
+//     const data = await Post.findByPk(req.body.id);
+
+//     if (data) {
+//       const post = data.get({ plain: true });
+//       res.render('single-post', {
+//       // rendering with a different layout than main
+//         layout: 'dashboard',
+//         post,
+//       });
+//     } else {
+//       res.status(404).end();
+//     }
+//   } catch (err) {
+//     res.redirect('all-posts-admin');
+//   }
+// });
 
 router.put('/:id', withAuth, async (req, res) => {
   try {

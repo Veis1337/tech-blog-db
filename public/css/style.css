@@ -183,7 +183,7 @@ input {
 .post-id {
   font-size: .5em;
   margin-left: 1%;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 /* CARDS */
