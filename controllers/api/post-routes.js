@@ -14,25 +14,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// router.get('/view/:id', withAuth, async (req,res) => {
-//   try{
-//     const data = await Post.findByPk(req.body.id);
-
-//     if (data) {
-//       const post = data.get({ plain: true });
-//       res.render('single-post', {
-//       // rendering with a different layout than main
-//         layout: 'dashboard',
-//         post,
-//       });
-//     } else {
-//       res.status(404).end();
-//     }
-//   } catch (err) {
-//     res.redirect('all-posts-admin');
-//   }
-// });
-
+// Post update route
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const [affectedRows] = await Post.update(req.body, {
@@ -51,6 +33,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
+// Post delete route
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const [affectedRows] = Post.destroy({

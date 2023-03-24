@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// New user route
 router.post('/', async (req, res) => {
   console.log("Hitting new user route...")
   try {
@@ -13,6 +14,7 @@ router.post('/', async (req, res) => {
       req.session.userId = newUser.id;
       req.session.username = newUser.username;
       req.session.loggedIn = true;
+      // req.session.idle = false;
 
       res.json(newUser);
     });
@@ -21,6 +23,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+// Login route
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
@@ -45,6 +58,7 @@ router.post('/login', async (req, res) => {
       req.session.userId = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;
+      // req.session.idle = false;
 
       res.json({ user, message: 'You are now logged in!' });
     });
@@ -52,6 +66,18 @@ router.post('/login', async (req, res) => {
     res.status(400).json({ message: 'No user account found!' });
   }
 });
+
+// Idle route
+router.post('/login/idle', (req, res) => {
+req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.loggedIn = true;
+      // req.session.idle = false;
+
+      res.json({ user, message: 'You are now logged in!' });
+    });
+})
 
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {

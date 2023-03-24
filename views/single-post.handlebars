@@ -13,14 +13,12 @@
   </p><br><br>
 </div>
 {{#if post.comments}}
+<h2 class="card-header" style="padding: 2%; background-color: #9caea9; color: #38302e;">Comments</h2><br>
 {{#each post.comments as |comment| }}
-<div class="card-header  flex-row justify-space-between"></div>
+<div class="card-header  flex-row justify-space-between" style="background-color: #9caea9; color: #38302e;">Comment by -- {{comment.user.username}} on {{comment.createdAt}}</div>
 <div>
   <p class="card-body">
     {{body}}
-  </p>
-  <p class="card-body">
-    Comment by -- {{comment.user.username}}
   </p>
 </div>
 </div>
@@ -29,7 +27,6 @@
 </div>
 <input type="hidden" id="post-id" value="{{post.id}}" />
 <div class="card">
-  <div class="card-header"></div>
   <form class="card-body" id="new-comment-form">
 
     <p class="form-label">Comment:</p>

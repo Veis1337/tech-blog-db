@@ -1,4 +1,4 @@
-// Not sure if needed, used timestamps instead for now.
+// Not sure if will be needed, used timestamps instead for now.
 
 module.exports = {
     format_time: (date) => {
