@@ -15,7 +15,7 @@ const env = require('dotenv');
 env.config();
 // Set up sessions for log-ins
 const sess = {
-  secret: process.env.SESSION_SECRET,
+  secret: 'process.env.SESSION_SECRET',
   cookie: {},
   resave: false,
   saveUninitialized: true,
