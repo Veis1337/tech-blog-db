@@ -11,8 +11,11 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const env = require('dotenv');
-env.config();
+
+const dotenv = require('dotenv').config()
+// const env = require('dotenv');
+
+// env.config();
 // Set up sessions for log-ins
 const sess = {
   secret: process.env.SESSION_SECRET,
