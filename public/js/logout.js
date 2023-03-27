@@ -7,7 +7,7 @@ const logout = async function() {
   if (response.ok) {
     document.location.replace('/login');
   } else {
-    alert('Failed to log out');
+    console.log("Failed to log out, or idle time hit but you are not logged in.")
   }
 };
 
@@ -34,7 +34,7 @@ function idle() {
       if(idleTimeout) clearTimeout(idleTimeout);
 
       // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-      idleTimeout = setTimeout(() => logout(), idleDurationSecs * 1000);
+      idleTimeout = setTimeout(() => logout(), idleDurationSecs * 10000);
   };
 
   // Init on page load
