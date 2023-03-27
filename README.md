@@ -23,3 +23,6 @@ MIT © Michael Weiss
 
 Repo link
 https://github.com/Veis1337/tech-blog-db
+
+Heroku deploy
+https://stark-beach-85805.herokuapp.com/login
